@@ -1,5 +1,3 @@
-
-
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -62,6 +60,7 @@ public class StepTrackerTest
     @DisplayName("Day Three")
     @Nested
     class ThirdDay {
+        @BeforeEach
         void thirdEntry() {
             FirstTwoDays ftd = new FirstTwoDays();
             ftd.firstTwoEntries();
@@ -75,9 +74,10 @@ public class StepTrackerTest
         }
     }
 
-    @DisplayName("Day Three")
+    @DisplayName("Days Four and Five")
     @Nested
     class NextTwoEntries {
+        @BeforeEach
         void nextTwoEntries() {
             ThirdDay td = new ThirdDay();
             td.thirdEntry();
