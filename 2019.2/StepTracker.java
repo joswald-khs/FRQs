@@ -32,6 +32,7 @@ public class StepTracker{
     public void addDailySteps( int steps ) {
         dailySteps.add(steps);
         if( steps > THRESHOLD ) { activeDays++; } 
+        System.out.println( steps + "<>" + THRESHOLD + ", " + dailySteps.size() );
     }
     
     public int activeDays() { return activeDays; }
