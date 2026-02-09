@@ -14,7 +14,9 @@ public class LogMessage {
     
     /** <b>Precondition</b>: message is a valid log message. */
     public LogMessage(String message) {
-        /* to be implemented in part (a) */
+        String[] splitResults = message.split(":");
+        machineId = splitResults[0];
+        description = splitResults[1];
     }
     
     /** 
