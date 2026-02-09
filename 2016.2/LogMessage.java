@@ -25,8 +25,19 @@ public class LogMessage {
      * contains keyword; false otherwise.
      */
     public boolean containsWord(String keyword) {
-        /* to be implemented in part (b) */
-        return false;
+        String searchString = description; 
+        int i = description.indexOf(keyword);
+        System.out.println(i);
+        if( i == -1 ) { return false; } 
+        else if( description.equals(keyword ) ) { return true; }
+        else {
+            if( description.indexOf( " " + keyword ) == -1 && 
+                description.indexOf( keyword + " " ) == -1 ) {
+                return false;
+            } else {
+                return true;
+            }
+        }
     }
     
     public String getMachineId() { return machineId; }
