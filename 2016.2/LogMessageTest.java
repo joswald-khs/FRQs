@@ -67,7 +67,8 @@ public class LogMessageTest
         final String keyword = "disk";
         
         for( LogMessage m : doesNotcontainKeywordMessages ) {
-            assertTrue( m.containsWord(keyword) );
+            System.out.println( m.containsWord(keyword) );
+            assertFalse( m.containsWord(keyword) );
         }
     }    
 

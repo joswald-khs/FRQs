@@ -25,19 +25,13 @@ public class LogMessage {
      * contains keyword; false otherwise.
      */
     public boolean containsWord(String keyword) {
-        String searchString = description; 
-        int i = description.indexOf(keyword);
-        System.out.println(i);
-        if( i == -1 ) { return false; } 
-        else if( description.equals(keyword ) ) { return true; }
-        else {
-            if( description.indexOf( " " + keyword ) == -1 && 
-                description.indexOf( keyword + " " ) == -1 ) {
-                return false;
-            } else {
-                return true;
-            }
-        }
+        if( description.equals(keyword) ) { return true; }
+        if( description.indexOf(keyword) == -1 ) { return false; }
+        if( description.indexOf(keyword + " ") == 0 ) { return true; } 
+        if( description.indexOf(" " + keyword) 
+            == description.length() - keyword.length() - 1 ) { return true; }
+        if( description.indexOf( " " + keyword + " " ) != -1 ) { return true; }
+        return false;
     }
     
     public String getMachineId() { return machineId; }
