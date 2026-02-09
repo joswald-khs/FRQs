@@ -39,4 +39,11 @@ public class LogMessage {
     
     // There may be instance variables, constructors, and methods 
     // that are not shown. 
+    
+    public boolean equals( Object obj ) {
+        if( obj instanceof LogMessage m ) {
+            return m.description.equals( this.description ) && m.machineId.equals( this.machineId );            
+        }
+        return false;
+    }
 }

@@ -11,4 +11,6 @@ comment3.params=
 comment3.target=java.lang.String\ getMachineId()
 comment4.params=
 comment4.target=java.lang.String\ getDescription()
-numComments=5
+comment5.params=obj
+comment5.target=boolean\ equals(java.lang.Object)
+numComments=6

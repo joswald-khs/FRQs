@@ -47,6 +47,8 @@ public class SystemLogTest
         
         SystemLog log = new SystemLog();
         List<LogMessage> removedMessages = log.removeMessages("disk");
+        System.out.println(removedMessages);
+        System.out.println(log.getMessages() );
         assertEquals( correctRemovedMessages, removedMessages );
         assertEquals( correctRemainingMessages, log.getMessages() );
     }

@@ -21,22 +21,31 @@ public class SystemLog {
     
     /** 
      * Removes from teh system log all entries whose descriptions
-     * <i>properly</i> contain keyword, and reeturns a list (possibly
+     * properlycontain keyword, and reeturns a list (possibly
      * empty) containing the removed entries.
      * <br/><br/>
      * <b>Postcondition</b>:
      * <ul>
-     * <li>Entries in the returned list <i>properly</i> contain keyword
+     * <li>Entries in the returned list properly contain keyword
      *   and are in the order in which they appeared in the system log</li>
-     * <li>The remaining entries in the system log do not <i>properly</i>
+     * <li>The remaining entries in the system log do not properly 
      *   contain keyword and are in their original order.</li>
      * <li>The returned list is empty if no messages properly contain
      *   keyword.</li>
      * </ul>
      */
     public List<LogMessage> removeMessages(String keyword) {
-        /* to be implemented in part (c) */
-        return new ArrayList<LogMessage>();
+        List<LogMessage> removed = new ArrayList<LogMessage>();
+        List<LogMessage> kept = new ArrayList<LogMessage>();
+        for( LogMessage m : messageList ) {
+            if( m.containsWord(keyword) ) {
+                removed.add(m);
+            } else {
+                kept.add(m);
+            }
+        }
+        messageList = kept;
+        return removed;
     }
     
     public SystemLog() {
