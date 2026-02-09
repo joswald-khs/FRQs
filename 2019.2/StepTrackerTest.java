@@ -32,7 +32,7 @@ public class StepTrackerTest
     @BeforeEach
     public void setUp()
     {
-        StepTracker tr = new StepTracker(10000);
+        tr = new StepTracker(10000);
     }
     
     @DisplayName("Testing Constructor")
@@ -43,11 +43,11 @@ public class StepTrackerTest
     }
 
     
-    @DisplayName("First two days")
+    @DisplayName("First Two Days")
     @Nested    
     class FirstTwoDays {
         @BeforeEach
-        void day1Entries() {
+        void firstTwoEntries() {
             tr.addDailySteps(9000);
             tr.addDailySteps(5000);
         }
@@ -58,6 +58,39 @@ public class StepTrackerTest
             assertEquals( 7000.0, tr.averageSteps() );               
         }
     }
+    
+    @DisplayName("Day Three")
+    @Nested
+    class ThirdDay {
+        void thirdEntry() {
+            FirstTwoDays ftd = new FirstTwoDays();
+            ftd.firstTwoEntries();
+            tr.addDailySteps(13000);            
+        }
+        
+        @Test
+        void validate() {
+            assertEquals( 1, tr.activeDays() );
+            assertEquals( 9000.0, tr.averageSteps() );                
+        }
+    }
+
+    @DisplayName("Day Three")
+    @Nested
+    class NextTwoEntries {
+        void nextTwoEntries() {
+            ThirdDay td = new ThirdDay();
+            td.thirdEntry();
+            tr.addDailySteps(23000);   
+            tr.addDailySteps(1111);
+        }
+        
+        @Test
+        void validate() {
+            assertEquals( 2, tr.activeDays() );
+            assertEquals( 10222.2, tr.averageSteps() );                
+        }
+    }    
 
     /**
      * Tears down the test fixture.
