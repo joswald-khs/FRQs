@@ -14,7 +14,7 @@ public class LogMessage {
     
     /** <b>Precondition</b>: message is a valid log message. */
     public LogMessage(String message) {
-        /* to be implemented in part (a) */
+        /* to be implemented in part (a) */      
     }
     
     /** 
