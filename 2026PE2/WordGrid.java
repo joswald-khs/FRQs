@@ -32,7 +32,7 @@ public class WordGrid {
         for( int j = 0; j < grid[i].length - 1; j++ ) {
             if( grid[i][j].length() > grid[i][j+1].length() ) {
                 return false;
-            }
+            } 
         }
         return true;
     }
